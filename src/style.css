@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Quicksand:wght@300..700&display=swap');
+@import "tailwindcss";
+
+@theme static {
+  --animate-complete: complete 1s ease forwards;
+  --animate-exist: exist 0.3s ease forwards;
+  --animate-die: exist 0.3s ease reverse forwards;
+  --font-triad: Fascinate Inline, serif;
+  --font-primary: Quicksand, serif;
+
+  @keyframes exist {
+    0% {
+      opacity: 0;
+      transform: scale(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(100%);
+    }
+  }
+  @keyframes complete {
+    0% { color: rgba(0, 0, 0, 1); }
+    50% { color: rgba(0, 0, 0, 0.5); }
+    100% { color: rgba(0, 0, 0, 1); }
+  }
+}
+
+@layer base {
+  .cell {
+    @apply uppercase font-bold bg-white rounded-lg p-1 h-16 w-16 cursor-pointer transition-colors duration-300;
+  }
+  .howtoplay {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+}
